@@ -54,7 +54,7 @@ export default function HomePage() {
   
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#F8FAFC" />
+      <StatusBar barStyle="dark-content" backgroundColor="#F8FAFC"/>
       
       {/* Header Section */}
       <View style={styles.header}>
@@ -73,7 +73,7 @@ export default function HomePage() {
             <Image
               style={styles.image}
               source={{
-                uri: 'https://ih1.redbubble.net/image.2344212492.2056/raf,360x360,075,t,fafafa:ca443f4786.jpg',
+                uri: 'https://i0.wp.com/port2flavors.com/wp-content/uploads/2022/07/placeholder-614.png?fit=1200%2C800&ssl=1',
               }}
             />
           </View>
