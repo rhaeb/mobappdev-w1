@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { 
   View, 
   Text, 
@@ -16,6 +16,14 @@ const { width } = Dimensions.get('window');
 
 export default function HomePage() {
   const [buttonScale] = useState(new Animated.Value(1));
+  const scrollY = useRef(new Animated.Value(0)).current
+
+  // Animation for header
+  const headerOpacity = scrollY.interpolate({
+    inputRange: [0, 100],
+    outputRange: [1, 0.9],
+    extrapolate: "clamp",
+  })
   
   const handlePress = () => {
     // Button press animation
@@ -57,10 +65,10 @@ export default function HomePage() {
       <StatusBar barStyle="dark-content" backgroundColor="#F8FAFC"/>
       
       {/* Header Section */}
-      <View style={styles.header}>
-        <Text style={styles.title}>Welcome to My App</Text>
-        <Text style={styles.subtitle}>Explore and enjoy!</Text>
-      </View>
+      <Animated.View style={[styles.header, { opacity: headerOpacity }]}>
+        <Text style={styles.greeting}>Hello, John! 👋</Text>
+        <Text style={styles.subtitle}>Welcome back to your dashboard</Text>
+      </Animated.View>
 
       {/* Main Content */}
       <View style={styles.main}>
@@ -113,9 +121,15 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   header: {
-    marginTop: 60,
-    marginBottom: 30,
-    paddingHorizontal: 10,
+    paddingTop: 15,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+  },
+  greeting: {
+    fontSize: 28,
+    fontWeight: "800",
+    color: "#1E293B",
+    letterSpacing: -0.5,
   },
   title: {
     fontSize: 32,
