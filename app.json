@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "MobDevFirstAct",
+    "entryPoint": "./App.js",
     "slug": "MobDevFirstAct",
     "version": "1.0.0",
     "orientation": "portrait",
